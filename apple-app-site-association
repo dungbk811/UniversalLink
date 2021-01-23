@@ -3,8 +3,8 @@
     "apps": [],
     "details": [
     {
-      "appID": "JMJ2A5AG2U.javis.NetRun”,
-      "paths": ["/updatePass"]
+      "appID": "JMJ2A5AG2U.javis.NetRun",
+      "paths": ["*"]
     }
     ]
   }
