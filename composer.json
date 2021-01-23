@@ -1,108 +1,11 @@
 {
-    "name": "yourusername/yourproject",
-    "type": "library",
-    "description": "yourdescription",
-    "keywords": [ "yourproject" ],
-    "homepage": "https://github.com/yourusername/yourproject",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "yourusername",
-            "email": "you@example.com",
-            "homepage": "http://example.com",
-            "role": "Developer"
-        },
-        {
-            "name": "Contributors",
-            "homepage": "https://github.com/yourusername/yourproject/graphs/contributors"
-        }
-    ],
-    "support": {
-        "docs": "https://github.com/yourusername/yourproject/docs",
-        "email": "yourproject@example.com",
-        "issues": "https://github.com/yourusername/yourproject/issues",
-        "irc": "irc://irc.freenode.org/yourproject",
-        "source": "https://github.com/yourusername/yourproject",
-        "wiki": "https://github.com/yourusername/yourproject/wiki"
-    },
-    "require": {
-        "php": "^5.6 || ^7.0",
-        "ext-mbstring": "*",
-        "psr/log": "^1.0",
-        "roave/security-advisories": "master@dev"
-    },
-    "require-dev": {
-        "apigen/apigen": "^4.1",
-        "block8/php-docblock-checker": "master@dev",
-        "jakub-onderka/php-console-highlighter": "^0.3.2",
-        "jakub-onderka/php-parallel-lint": "^0.9.2",
-        "mockery/mockery": "^0.9.5",
-        "phploc/phploc": "^3.0.1",
-        "phpmd/phpmd": "^2.4.3",
-        "phpunit/phpunit": "^5.5",
-        "sami/sami": "^3.3.0",
-        "satooshi/php-coveralls": "master@dev",
-        "sebastian/phpcpd": "^2.0.4",
-        "squizlabs/php_codesniffer": "^2.6.2"
-    },
-    "autoload": {
-        "psr-4": {
-            "YourProject\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "YourProject\\Tests\\": "tests/"
-        }
-    },
-    "suggest": {
-        "ext-fileinfo": "to handle mimetype guessing locally"
-    },
-    "archive": {
-        "exclude": [
-            "/tests",
-            "/build",
-            "/vendor"
-        ]
-    },
-    "scripts": {
-        "test": [
-            "@php-lint",
-            "@php-test",
-            "@code-sniffer",
-            "@validate-json"
-        ],
-        "sniff": [
-            "@php-lint",
-            "@code-sniffer-autofix",
-            "@code-sniffer",
-            "@copy-paste-detector",
-            "@mess-detector"
-        ],
-        "docs": [
-            "apigen generate -s ./src -d ./build/coverage/docs/apigen --template-theme bootstrap --todo --tree --deprecated --no-source-code",
-            "vendor/sami/sami/sami.php --ansi update sami.cfg.php"
-        ],
-        "check-docblocks": "phpdoccheck --skip-anonymous-functions -d src/",
-        "code-sniffer": "phpcs -p -s --extensions=php --standard='PSR1,PSR2' src/ tests/",
-        "code-sniffer-autofix": "phpcbf --standard=PSR2 -d tabWidth=4 src/ tests/",
-        "copy-paste-detector": "phpcpd src/ tests/",
-        "mess-detector": "phpmd src,tests text codesize,unusedcode,naming,cleancode,design",
-        "php-lint": "parallel-lint --blame --exclude vendor src/ tests/",
-        "php-lint2": [
-            "find src/ -name '*.php' -print0 | xargs -0 -L 1 php -l",
-            "find tests/ -name '*.php' -print0 | xargs -0 -L 1 php -l"
-        ],
-        "php-loc": "phploc src",
-        "php-test": "phpunit",
-        "reports": [
-            "phploc --log-xml ./build/coverage/logs/phploc.xml --progress src || echo",
-            "phpcs -p -s --extensions=php --report=checkstyle --report-file=./build/coverage/logs/checkstyle.xml --standard='PSR1,PSR2' src/ tests/ || echo",
-            "phpcpd --log-pmd ./build/coverage/logs/phpcpd.xml --progress src/ tests/ || echo",
-            "phpmd src xml codesize,unusedcode,naming,cleancode,design --reportfile ./build/coverage/logs/phpmd.xml || echo",
-            "phpmd src html codesize,unusedcode,naming,cleancode,design --reportfile ./build/coverage/logs/phpmd.html || echo"
-        ],
-        "validate-json": "composer validate --no-check-all --no-check-lock",
-        "validate-deps": "composer validate --with-dependencies --strict"
-    }
+  "require" : {
+    "silex/silex": "^2.0.4",
+    "monolog/monolog": "^1.22",
+    "twig/twig": "^2.0",
+    "symfony/twig-bridge": "^3"
+  },
+  "require-dev": {
+    "heroku/heroku-buildpack-php": "*"
+  }
 }
